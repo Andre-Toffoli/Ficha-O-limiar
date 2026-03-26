@@ -36,13 +36,14 @@ form {
     gap: 15px;
 }
 
-input, textarea {
+input, textarea, select {
     width: 100%;
     padding: 8px;
     background: #222;
     border: 1px solid #444;
     color: white;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 textarea { resize: vertical; }
@@ -97,6 +98,69 @@ button {
     height: 100%;
     transition: width 0.3s;
 }
+
+.classe-selector {
+    grid-column: span 2;
+    padding: 15px;
+    background: rgba(138, 154, 91, 0.2);
+    border-radius: 5px;
+    border: 2px solid #8a9a5b;
+    margin-bottom: 10px;
+}
+
+.classe-selector h2 {
+    color: #8a9a5b;
+    margin-top: 0;
+}
+
+.pericias-grid {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pericia-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pericia-item label {
+    flex: 1;
+    margin: 0;
+}
+
+.pericia-item input {
+    width: 60px;
+}
+
+.atributos-grid {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.atributo-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.atributo-item label {
+    flex: 1;
+    margin: 0;
+}
+
+.atributo-item input {
+    width: 60px;
+}
+
+.bloco-pericias {
+    margin-top: 60px;
+}
 </style>
 </head>
 
@@ -108,6 +172,18 @@ button {
 <h1>Ficha de Personagem</h1>
 
 <form>
+
+<!-- SELETOR DE CLASSE -->
+<div class="classe-selector">
+<h2>Escolha sua Classe</h2>
+<label>Classe:</label>
+<select id="classe">
+    <option value="">-- Selecione uma Classe --</option>
+    <option value="Sucateiro">Sucateiro</option>
+    <option value="Linha de Frente">Linha de Frente</option>
+    <option value="Rastreador">Rastreador</option>
+</select>
+</div>
 
 <!-- FOTO -->
 <div class="preview-img">
@@ -137,40 +213,178 @@ button {
 <textarea id="lore" rows="3"></textarea>
 </div>
 
+<!-- ATRIBUTOS -->
+<div class="bloco-inteiro">
+<h3>Distribuição de Atributos</h3>
+<div class="atributos-grid">
+    <div class="atributo-item">
+        <label for="forca">Força:</label>
+        <input type="number" id="forca" min="1" max="3" value="1">
+    </div>
+    <div class="atributo-item">
+        <label for="vigor">Vigor:</label>
+        <input type="number" id="vigor" min="1" max="3" value="1">
+    </div>
+    <div class="atributo-item">
+        <label for="agilidade">Agilidade:</label>
+        <input type="number" id="agilidade" min="1" max="3" value="1">
+    </div>
+    <div class="atributo-item">
+        <label for="intelecto">Intelecto:</label>
+        <input type="number" id="intelecto" min="1" max="3" value="1">
+    </div>
+    <div class="atributo-item">
+        <label for="carisma">Carisma:</label>
+        <input type="number" id="carisma" min="1" max="3" value="1">
+    </div>
+    <div class="atributo-item">
+        <label for="presenca">Presença:</label>
+        <input type="number" id="presenca" min="1" max="3" value="1">
+    </div>
+</div>
+</div>
+
+<!-- PERÍCIAS -->
+<div class="bloco-inteiro bloco-pericias">
+<h3>Perícias</h3>
+<div class="pericias-grid">
+    <div class="pericia-item">
+        <label for="luta">Luta:</label>
+        <input type="number" id="luta" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="pontaria">Pontaria:</label>
+        <input type="number" id="pontaria" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="furtividade">Furtividade:</label>
+        <input type="number" id="furtividade" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="atletismo">Atletismo:</label>
+        <input type="number" id="atletismo" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="primeiros-socorros">Primeiros Socorros:</label>
+        <input type="number" id="primeiros-socorros" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="medicina">Medicina:</label>
+        <input type="number" id="medicina" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="mecanica">Mecânica:</label>
+        <input type="number" id="mecanica" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="eletronica">Eletrônica:</label>
+        <input type="number" id="eletronica" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="sobrevivencia">Sobrevivência:</label>
+        <input type="number" id="sobrevivencia" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="taticas">Táticas:</label>
+        <input type="number" id="taticas" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="investigacao">Investigação:</label>
+        <input type="number" id="investigacao" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="percepcao">Percepção:</label>
+        <input type="number" id="percepcao" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="persuasao">Persuasão:</label>
+        <input type="number" id="persuasao" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="intimidacao">Intimidação:</label>
+        <input type="number" id="intimidacao" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="lideranca">Liderança:</label>
+        <input type="number" id="lideranca" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="enganacao">Enganação:</label>
+        <input type="number" id="enganacao" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="conhecimento-zona">Conhecimento da Zona:</label>
+        <input type="number" id="conhecimento-zona" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="conhecimento-floresta">Conhecimento da Floresta:</label>
+        <input type="number" id="conhecimento-floresta" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="resistencia-mental">Resistência Mental:</label>
+        <input type="number" id="resistencia-mental" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="controle-emocional">Controle Emocional:</label>
+        <input type="number" id="controle-emocional" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="acrobacia">Acrobacia:</label>
+        <input type="number" id="acrobacia" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="diplomacia">Diplomacia:</label>
+        <input type="number" id="diplomacia" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="crime">Crime:</label>
+        <input type="number" id="crime" min="0" max="5" value="0">
+    </div>
+    <div class="pericia-item">
+        <label for="intuicao">Intuição:</label>
+        <input type="number" id="intuicao" min="0" max="5" value="0">
+    </div>
+</div>
+</div>
+
 <!-- STATUS -->
 <div class="bloco-inteiro">
 <h3>Status</h3>
 
 Vida
-<input type="number" id="vida" value="100" min="0" max="100" oninput="updateBar('vidaBar', this.value)">
+<input type="number" id="vida" value="23" min="0" max="23" oninput="updateBar('vidaBar', this.value, 23)">
 <div class="barra"><div id="vidaBar" class="fill" style="background:#f44336;width:100%"></div></div>
 
 Esforço
-<input type="number" id="esforco" value="100" min="0" max="100" oninput="updateBar('esforcoBar', this.value)">
+<input type="number" id="esforco" value="5" min="0" max="5" oninput="updateBar('esforcoBar', this.value, 5)">
 <div class="barra"><div id="esforcoBar" class="fill" style="background:#2196F3;width:100%"></div></div>
 
 Sanidade
-<input type="number" id="sanidade" value="100" min="0" max="100" oninput="updateBar('sanidadeBar', this.value)">
+<input type="number" id="sanidade" value="15" min="0" max="15" oninput="updateBar('sanidadeBar', this.value, 15)">
 <div class="barra"><div id="sanidadeBar" class="fill" style="background:#9C27B0;width:100%"></div></div>
 
 Infecção
-<input type="number" id="infeccao" value="0" min="0" max="100" oninput="updateBar('infeccaoBar', this.value)">
+<input type="number" id="infeccao" value="0" min="0" max="100" oninput="updateBar('infeccaoBar', this.value, 100)">
 <div class="barra"><div id="infeccaoBar" class="fill" style="background:#4CAF50;width:0%"></div></div>
 
 Esquiva
-<input type="number" id="esquiva" value="0" min="0" max="100" oninput="updateBar('esquivaBar', this.value)">
+<input type="number" id="esquiva" value="0" min="0" max="15" oninput="updateBar('esquivaBar', this.value, 15)">
 <div class="barra"><div id="esquivaBar" class="fill" style="background:#FFC107;width:0%"></div></div>
 
 Defesa
-<input type="number" id="defesa" value="0" min="0" max="100" oninput="updateBar('defesaBar', this.value)">
+<input type="number" id="defesa" value="0" min="0" max="13" oninput="updateBar('defesaBar', this.value, 13)">
 <div class="barra"><div id="defesaBar" class="fill" style="background:#9E9E9E;width:0%"></div></div>
 
+Bloqueio
+<input type="number" id="bloqueio" value="0" min="0" max="13" oninput="updateBar('bloqueioBar', this.value, 13)">
+<div class="barra"><div id="bloqueioBar" class="fill" style="background:#795548;width:0%"></div></div>
+
 Fome
-<input type="number" id="fome" value="100" min="0" max="100" oninput="updateBar('fomeBar', this.value)">
+<input type="number" id="fome" value="100" min="0" max="100" oninput="updateBar('fomeBar', this.value, 100)">
 <div class="barra"><div id="fomeBar" class="fill" style="background:#FF9800;width:100%"></div></div>
 
 Água
-<input type="number" id="agua" value="100" min="0" max="100" oninput="updateBar('aguaBar', this.value)">
+<input type="number" id="agua" value="100" min="0" max="100" oninput="updateBar('aguaBar', this.value, 100)">
 <div class="barra"><div id="aguaBar" class="fill" style="background:#03A9F4;width:100%"></div></div>
 
 </div>
@@ -200,8 +414,8 @@ Munição <input type="number" id="municaoLonga" value="0">
 <br><br>
 
 Arma Corpo a Corpo 
-<input type="text">
-Durabilidade <input type="number" value="10">
+<input type="text" id="armaCorpoCorpo">
+Durabilidade <input type="number" id="durabilidade" value="10">
 </div>
 
 <!-- EQUIPAMENTOS -->
@@ -213,15 +427,15 @@ Durabilidade <input type="number" value="10">
 <!-- INVENTÁRIO COMPLETO -->
 <div class="bloco-inteiro">
 <h3>Inventário</h3>
-Comida <input type="number" value="0">
-Água <input type="number" value="0">
+Comida <input type="number" id="comida" value="0">
+Água <input type="number" id="agua-inv" value="0">
 Peças <input type="number" id="pecas" value="0">
 Trapos <input type="number" id="trapos" value="0">
 Álcool <input type="number" id="alcool" value="0">
 Lâminas <input type="number" id="laminas" value="0">
 Explosivos <input type="number" id="explosivos" value="0">
-Açúcar <input type="number" value="0">
-Remédios <input type="number" value="0">
+Açúcar <input type="number" id="acucar" value="0">
+Remédios <input type="number" id="remedios" value="0">
 Fita Adesiva <input type="number" id="fita" value="0">
 </div>
 
@@ -239,7 +453,7 @@ Fita Adesiva <input type="number" id="fita" value="0">
 <!-- BOTOES -->
 <div class="botoes">
 <button type="button" class="exportar" onclick="exportarWord()">Salvar em Word</button>
-<button type="reset" class="apagar">Apagar Ficha</button>
+<button type="reset" class="apagar" onclick="apagarForm()">Apagar Ficha</button>
 <button type="button" onclick="salvarFicha()">Salvar Jogo</button>
 <button type="button" onclick="carregarFicha()">Carregar Jogo</button>
 <button type="button" onclick="apagarSave()">Apagar Save</button>
@@ -249,20 +463,21 @@ Fita Adesiva <input type="number" id="fita" value="0">
 </div>
 
 <script>
-// BARRAS
-function updateBar(id, value){
-    document.getElementById(id).style.width = value + "%";
+// BARRAS COM MÁXIMO DINÂMICO
+function updateBar(id, value, max){
+    let percentage = (value / max) * 100;
+    document.getElementById(id).style.width = percentage + "%";
 }
 
 // VALORES
-function getVal(id){ return parseInt(document.getElementById(id).value); }
-function setVal(id,val){ document.getElementById(id).value = val; }
+function getVal(id){ return document.getElementById(id).value; }
+function setVal(id, val){ document.getElementById(id).value = val; }
 
 // CRAFT ITEM
 function craftItem(nome,item1,item2){
-    if(getVal(item1)>=1 && getVal(item2)>=1){
-        setVal(item1,getVal(item1)-1);
-        setVal(item2,getVal(item2)-1);
+    if(parseInt(getVal(item1))>=1 && parseInt(getVal(item2))>=1){
+        setVal(item1, parseInt(getVal(item1))-1);
+        setVal(item2, parseInt(getVal(item2))-1);
         document.getElementById("equipamentos").value += nome + "\n";
         document.getElementById("craftMsg").innerText = nome + " criado e adicionado!";
     } else {
@@ -291,7 +506,7 @@ function exportarWord() {
     link.click();
 }
 
-// MELHORIA ARMAS TLOU
+// MELHORIA ARMAS
 function melhorarArma(tipo){
     let estrelaId = tipo === "curta" ? "estrelaCurta" : "estrelaLonga";
     let estrelas = parseInt(document.getElementById(estrelaId).innerText);
@@ -304,9 +519,9 @@ function melhorarArma(tipo){
     let custoPecas = (estrelas + 1) * 10;
     let custoLaminas = (estrelas + 1) * 2;
 
-    if(getVal("pecas") >= custoPecas && getVal("laminas") >= custoLaminas){
-        setVal("pecas", getVal("pecas") - custoPecas);
-        setVal("laminas", getVal("laminas") - custoLaminas);
+    if(parseInt(getVal("pecas")) >= custoPecas && parseInt(getVal("laminas")) >= custoLaminas){
+        setVal("pecas", parseInt(getVal("pecas")) - custoPecas);
+        setVal("laminas", parseInt(getVal("laminas")) - custoLaminas);
         document.getElementById(estrelaId).innerText = estrelas + 1;
         document.getElementById("craftMsg").innerText = "Arma melhorada para ⭐ " + (estrelas+1);
     } else {
@@ -328,8 +543,8 @@ function removerMelhoria(tipo){
     let custoPecas = estrelas * 10;
     let custoLaminas = estrelas * 2;
 
-    setVal("pecas", getVal("pecas") + Math.floor(custoPecas/2));
-    setVal("laminas", getVal("laminas") + Math.floor(custoLaminas/2));
+    setVal("pecas", parseInt(getVal("pecas")) + Math.floor(custoPecas/2));
+    setVal("laminas", parseInt(getVal("laminas")) + Math.floor(custoLaminas/2));
 
     document.getElementById(estrelaId).innerText = estrelas - 1;
     document.getElementById("craftMsg").innerText = "Melhoria removida.";
@@ -337,7 +552,7 @@ function removerMelhoria(tipo){
 
 // ATIRAR
 function atirar(idMunicao){
-    let municao = getVal(idMunicao);
+    let municao = parseInt(getVal(idMunicao));
     if(municao > 0){
         setVal(idMunicao, municao - 1);
         document.getElementById("craftMsg").innerText = "Tiro efetuado!";
@@ -348,235 +563,227 @@ function atirar(idMunicao){
 
 // CRAFT MELHORIA
 function craftMelhoria(){
-    if(getVal("pecas") >= 5 && getVal("laminas") >= 1){
+    if(parseInt(getVal("pecas")) >= 5 && parseInt(getVal("laminas")) >= 1){
         document.getElementById("craftMsg").innerText = "Você possui recursos para melhorar sua arma.";
     } else {
         document.getElementById("craftMsg").innerText = "Recursos insuficientes para melhoria.";
     }
 }
 
-// SAVE / LOAD
-let ficha = {};
+// LISTA COMPLETA DE PERÍCIAS
+const listaPericias = [
+    'luta', 'pontaria', 'furtividade', 'atletismo', 'primeiros-socorros',
+    'medicina', 'mecanica', 'eletronica', 'sobrevivencia', 'taticas',
+    'investigacao', 'percepcao', 'persuasao', 'intimidacao', 'lideranca', 'enganacao',
+    'conhecimento-zona', 'conhecimento-floresta', 'resistencia-mental',
+    'controle-emocional', 'acrobacia', 'diplomacia', 'crime', 'intuicao'
+];
+
+// LISTA COMPLETA DE ATRIBUTOS
+const listaAtributos = [
+    'forca', 'vigor', 'agilidade', 'intelecto', 'carisma', 'presenca'
+];
+
+// SALVAR FICHA COMPLETA
 function salvarFicha() {
-    ficha = {
-        nome: document.getElementById("nome").value,
+    let ficha = {
+        classe: getVal("classe"),
+        nome: getVal("nome"),
         idade: getVal("idade"),
-        cidade: document.getElementById("cidade").value,
-        estado: document.getElementById("estado").value,
-        pais: document.getElementById("pais").value,
+        cidade: getVal("cidade"),
+        estado: getVal("estado"),
+        pais: getVal("pais"),
+        lore: getVal("lore"),
+        
+        // Atributos
+        forca: getVal("forca"),
+        vigor: getVal("vigor"),
+        agilidade: getVal("agilidade"),
+        intelecto: getVal("intelecto"),
+        carisma: getVal("carisma"),
+        presenca: getVal("presenca"),
+        
+        // Perícias
+        luta: getVal("luta"),
+        pontaria: getVal("pontaria"),
+        furtividade: getVal("furtividade"),
+        atletismo: getVal("atletismo"),
+        'primeiros-socorros': getVal("primeiros-socorros"),
+        medicina: getVal("medicina"),
+        mecanica: getVal("mecanica"),
+        eletronica: getVal("eletronica"),
+        sobrevivencia: getVal("sobrevivencia"),
+        taticas: getVal("taticas"),
+        investigacao: getVal("investigacao"),
+        percepcao: getVal("percepcao"),
+        persuasao: getVal("persuasao"),
+        intimidacao: getVal("intimidacao"),
+        lideranca: getVal("lideranca"),
+        enganacao: getVal("enganacao"),
+        'conhecimento-zona': getVal("conhecimento-zona"),
+        'conhecimento-floresta': getVal("conhecimento-floresta"),
+        'resistencia-mental': getVal("resistencia-mental"),
+        'controle-emocional': getVal("controle-emocional"),
+        acrobacia: getVal("acrobacia"),
+        diplomacia: getVal("diplomacia"),
+        crime: getVal("crime"),
+        intuicao: getVal("intuicao"),
+        
+        // Status
         vida: getVal("vida"),
         esforco: getVal("esforco"),
         sanidade: getVal("sanidade"),
         infeccao: getVal("infeccao"),
         esquiva: getVal("esquiva"),
         defesa: getVal("defesa"),
+        bloqueio: getVal("bloqueio"),
         fome: getVal("fome"),
         agua: getVal("agua"),
-        armaCurta: document.getElementById("armaCurta").value,
-        estrelaCurta: getVal("estrelaCurta"),
+        
+        // Armas
+        armaCurta: getVal("armaCurta"),
+        estrelaCurta: document.getElementById("estrelaCurta").innerText,
         municaoCurta: getVal("municaoCurta"),
-        armaLonga: document.getElementById("armaLonga").value,
-        estrelaLonga: getVal("estrelaLonga"),
+        armaLonga: getVal("armaLonga"),
+        estrelaLonga: document.getElementById("estrelaLonga").innerText,
         municaoLonga: getVal("municaoLonga"),
+        armaCorpoCorpo: getVal("armaCorpoCorpo"),
+        durabilidade: getVal("durabilidade"),
+        
+        // Equipamentos e Inventário
+        equipamentos: getVal("equipamentos"),
+        comida: getVal("comida"),
+        aguaInv: getVal("agua-inv"),
         pecas: getVal("pecas"),
-        laminas: getVal("laminas")
+        trapos: getVal("trapos"),
+        alcool: getVal("alcool"),
+        laminas: getVal("laminas"),
+        explosivos: getVal("explosivos"),
+        acucar: getVal("acucar"),
+        remedios: getVal("remedios"),
+        fita: getVal("fita")
     };
+    
     localStorage.setItem("saveJogo", JSON.stringify(ficha));
-    alert("Jogo salvo com sucesso!");
+    alert("✅ Jogo salvo com sucesso!");
 }
 
+// CARREGAR FICHA COMPLETA
 function carregarFicha() {
     let save = localStorage.getItem("saveJogo");
     if(save){
-        ficha = JSON.parse(save);
-        document.getElementById("nome").value = ficha.nome;
-        setVal("idade", ficha.idade);
-        document.getElementById("cidade").value = ficha.cidade;
-        document.getElementById("estado").value = ficha.estado;
-        document.getElementById("pais").value = ficha.pais;
-        setVal("vida", ficha.vida); updateBar("vidaBar", ficha.vida);
-        setVal("esforco", ficha.esforco); updateBar("esforcoBar", ficha.esforco);
-        setVal("sanidade", ficha.sanidade); updateBar("sanidadeBar", ficha.sanidade);
-        setVal("infeccao", ficha.infeccao); updateBar("infeccaoBar", ficha.infeccao);
-        setVal("esquiva", ficha.esquiva); updateBar("esquivaBar", ficha.esquiva);
-        setVal("defesa", ficha.defesa); updateBar("defesaBar", ficha.defesa);
-        setVal("fome", ficha.fome); updateBar("fomeBar", ficha.fome);
-        setVal("agua", ficha.agua); updateBar("aguaBar", ficha.agua);
-        document.getElementById("armaCurta").value = ficha.armaCurta;
-        setVal("estrelaCurta", ficha.estrelaCurta);
-        setVal("municaoCurta", ficha.municaoCurta);
-        document.getElementById("armaLonga").value = ficha.armaLonga;
-        setVal("estrelaLonga", ficha.estrelaLonga);
-        setVal("municaoLonga", ficha.municaoLonga);
-        setVal("pecas", ficha.pecas);
-        setVal("laminas", ficha.laminas);
-        alert("Jogo carregado com sucesso!");
+        let ficha = JSON.parse(save);
+        
+        setVal("classe", ficha.classe || "");
+        setVal("nome", ficha.nome || "");
+        setVal("idade", ficha.idade || "");
+        setVal("cidade", ficha.cidade || "");
+        setVal("estado", ficha.estado || "");
+        setVal("pais", ficha.pais || "");
+        setVal("lore", ficha.lore || "");
+        
+        // Atributos
+        setVal("forca", ficha.forca || "1");
+        setVal("vigor", ficha.vigor || "1");
+        setVal("agilidade", ficha.agilidade || "1");
+        setVal("intelecto", ficha.intelecto || "1");
+        setVal("carisma", ficha.carisma || "1");
+        setVal("presenca", ficha.presenca || "1");
+        
+        // Perícias
+        setVal("luta", ficha.luta || "0");
+        setVal("pontaria", ficha.pontaria || "0");
+        setVal("furtividade", ficha.furtividade || "0");
+        setVal("atletismo", ficha.atletismo || "0");
+        setVal("primeiros-socorros", ficha['primeiros-socorros'] || "0");
+        setVal("medicina", ficha.medicina || "0");
+        setVal("mecanica", ficha.mecanica || "0");
+        setVal("eletronica", ficha.eletronica || "0");
+        setVal("sobrevivencia", ficha.sobrevivencia || "0");
+        setVal("taticas", ficha.taticas || "0");
+        setVal("investigacao", ficha.investigacao || "0");
+        setVal("percepcao", ficha.percepcao || "0");
+        setVal("persuasao", ficha.persuasao || "0");
+        setVal("intimidacao", ficha.intimidacao || "0");
+        setVal("lideranca", ficha.lideranca || "0");
+        setVal("enganacao", ficha.enganacao || "0");
+        setVal("conhecimento-zona", ficha['conhecimento-zona'] || "0");
+        setVal("conhecimento-floresta", ficha['conhecimento-floresta'] || "0");
+        setVal("resistencia-mental", ficha['resistencia-mental'] || "0");
+        setVal("controle-emocional", ficha['controle-emocional'] || "0");
+        setVal("acrobacia", ficha.acrobacia || "0");
+        setVal("diplomacia", ficha.diplomacia || "0");
+        setVal("crime", ficha.crime || "0");
+        setVal("intuicao", ficha.intuicao || "0");
+        
+        // Status
+        setVal("vida", ficha.vida || "23"); updateBar("vidaBar", ficha.vida || "23", 23);
+        setVal("esforco", ficha.esforco || "5"); updateBar("esforcoBar", ficha.esforco || "5", 5);
+        setVal("sanidade", ficha.sanidade || "15"); updateBar("sanidadeBar", ficha.sanidade || "15", 15);
+        setVal("infeccao", ficha.infeccao || "0"); updateBar("infeccaoBar", ficha.infeccao || "0", 100);
+        setVal("esquiva", ficha.esquiva || "0"); updateBar("esquivaBar", ficha.esquiva || "0", 15);
+        setVal("defesa", ficha.defesa || "0"); updateBar("defesaBar", ficha.defesa || "0", 13);
+        setVal("bloqueio", ficha.bloqueio || "0"); updateBar("bloqueioBar", ficha.bloqueio || "0", 13);
+        setVal("fome", ficha.fome || "100"); updateBar("fomeBar", ficha.fome || "100", 100);
+        setVal("agua", ficha.agua || "100"); updateBar("aguaBar", ficha.agua || "100", 100);
+        
+        // Armas
+        setVal("armaCurta", ficha.armaCurta || "");
+        document.getElementById("estrelaCurta").innerText = ficha.estrelaCurta || "0";
+        setVal("municaoCurta", ficha.municaoCurta || "0");
+        setVal("armaLonga", ficha.armaLonga || "");
+        document.getElementById("estrelaLonga").innerText = ficha.estrelaLonga || "0";
+        setVal("municaoLonga", ficha.municaoLonga || "0");
+        setVal("armaCorpoCorpo", ficha.armaCorpoCorpo || "");
+        setVal("durabilidade", ficha.durabilidade || "10");
+        
+        // Equipamentos e Inventário
+        setVal("equipamentos", ficha.equipamentos || "");
+        setVal("comida", ficha.comida || "0");
+        setVal("agua-inv", ficha.aguaInv || "0");
+        setVal("pecas", ficha.pecas || "0");
+        setVal("trapos", ficha.trapos || "0");
+        setVal("alcool", ficha.alcool || "0");
+        setVal("laminas", ficha.laminas || "0");
+        setVal("explosivos", ficha.explosivos || "0");
+        setVal("acucar", ficha.acucar || "0");
+        setVal("remedios", ficha.remedios || "0");
+        setVal("fita", ficha.fita || "0");
+        
+        alert("✅ Jogo carregado com sucesso!");
     } else {
-        alert("Nenhum save encontrado!");
+        alert("❌ Nenhum save encontrado!");
     }
 }
 
+// APAGAR SAVE
 function apagarSave() {
-    localStorage.removeItem("saveJogo");
-    alert("Save apagado com sucesso!");
+    if(confirm("Tem certeza que deseja apagar o save?")){
+        localStorage.removeItem("saveJogo");
+        alert("✅ Save apagado com sucesso!");
+    }
+}
+
+// APAGAR FORMULÁRIO
+function apagarForm() {
+    if(confirm("Tem certeza que deseja apagar a ficha?")){
+        document.querySelector("form").reset();
+        document.getElementById("preview").style.display = "none";
+        document.getElementById("estrelaCurta").innerText = "0";
+        document.getElementById("estrelaLonga").innerText = "0";
+        // Redefine aos valores padrão
+        setVal("vida", "23");
+        setVal("esforco", "5");
+        setVal("sanidade", "15");
+        updateBar("vidaBar", 23, 23);
+        updateBar("esforcoBar", 5, 5);
+        updateBar("sanidadeBar", 15, 15);
+        updateBar("fomeBar", 100, 100);
+        updateBar("aguaBar", 100, 100);
+        alert("✅ Ficha apagada!");
+    }
 }
 </script>
 
 </body>
 </html>
-
-<!-- ATRIBUTOS -->
-<div class="atributos">
-    <label>Distribuição de Atributos:</label>
-
-    <div>
-        <label for="forca">Força:</label>
-        <input type="number" id="forca" name="forca" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="vigor">Vigor:</label>
-        <input type="number" id="vigor" name="vigor" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="agilidade">Agilidade:</label>
-        <input type="number" id="agilidade" name="agilidade" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="intelecto">Intelecto:</label>
-        <input type="number" id="intelecto" name="intelecto" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="carisma">Carisma:</label>
-        <input type="number" id="carisma" name="carisma" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="presenca">Presença:</label>
-        <input type="number" id="presenca" name="presenca" min="1" max="3" value="1" required>
-    </div>
-</div>
-
-
-<!-- PERÍCIAS -->
-<div class="pericias">
-
-    <div>
-        <label for="luta">Luta:</label>
-        <input type="number" id="luta" name="luta" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="pontaria">Pontaria:</label>
-        <input type="number" id="pontaria" name="pontaria" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="furtividade">Furtividade:</label>
-        <input type="number" id="furtividade" name="furtividade" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="atletismo">Atletismo:</label>
-        <input type="number" id="atletismo" name="atletismo" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="primeiros-socorros">Primeiros Socorros:</label>
-        <input type="number" id="primeiros-socorros" name="primeiros-socorros" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="medicina">Medicina:</label>
-        <input type="number" id="medicina" name="medicina" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="mecanica">Mecânica:</label>
-        <input type="number" id="mecanica" name="mecanica" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="eletronica">Eletrônica:</label>
-        <input type="number" id="eletronica" name="eletronica" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="sobrevivencia">Sobrevivência:</label>
-        <input type="number" id="sobrevivencia" name="sobrevivencia" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="taticas">Táticas:</label>
-        <input type="number" id="taticas" name="taticas" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="investigacao">Investigação:</label>
-        <input type="number" id="investigacao" name="investigacao" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="persuasao">Persuasão:</label>
-        <input type="number" id="persuasao" name="persuasao" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="intimidacao">Intimidação:</label>
-        <input type="number" id="intimidacao" name="intimidacao" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="lideranca">Liderança:</label>
-        <input type="number" id="lideranca" name="lideranca" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="enganacao">Enganação:</label>
-        <input type="number" id="enganacao" name="enganacao" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="conhecimento-zona">Conhecimento da Zona:</label>
-        <input type="number" id="conhecimento-zona" name="conhecimento-zona" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="conhecimento-floresta">Conhecimento da Floresta:</label>
-        <input type="number" id="conhecimento-floresta" name="conhecimento-floresta" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="resistencia-mental">Resistência Mental:</label>
-        <input type="number" id="resistencia-mental" name="resistencia-mental" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="controle-emocional">Controle Emocional:</label>
-        <input type="number" id="controle-emocional" name="controle-emocional" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="acrobacia">Acrobacia:</label>
-        <input type="number" id="acrobacia" name="acrobacia" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="diplomacia">Diplomacia:</label>
-        <input type="number" id="diplomacia" name="diplomacia" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="crime">Crime:</label>
-        <input type="number" id="crime" name="crime" min="1" max="3" value="1" required>
-    </div>
-
-    <div>
-        <label for="intuicao">Intuição:</label>
-        <input type="number" id="intuicao" name="intuicao" min="1" max="3" value="1" required>
-    </div>
-
-</div>
